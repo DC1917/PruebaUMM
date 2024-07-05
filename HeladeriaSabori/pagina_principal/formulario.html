@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estiloformulario.css">
+    <title>Formulario de Heladería</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="listardatos.html">Listar Datos</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Formulario de Heladería</h2>
+
+    <form id="formulario-heladeria" action="/guardar_helado" method="post">
+        <div>
+            <label for="nombre">Nombre del Helado:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div>
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" required>
+        </div>
+        <div>
+            <label for="sabor">Sabor:</label>
+            <input type="text" id="sabor" name="sabor" required>
+        </div>
+        <div>
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="" disabled selected>Selecciona un tipo</option>
+                <option value="crema">Crema</option>
+                <option value="sorbete">Sorbete</option>
+                <option value="yogur">Yogur</option>
+                <option value="vegano">Vegano</option>
+            </select>
+        </div>
+        <div>
+            <label for="cobertura">Cobertura:</label>
+            <input type="text" id="cobertura" name="cobertura" required>
+        </div>
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" required>
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

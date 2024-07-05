@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro e Inicio de Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/estilogin.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo de la empresa">
+        </div>
+        <div class="referencias">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para poder comprar tus boletos</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Regístrate para unirte a PlusTurbus</p>
+                    <button id="btn__registrarse">Registrarse</button>
+                </div>
+            </div>
+            <div class="contenedor__login-register">
+                <form id="formularioRegistro" class="formulario__register" style="display: none;" action="/registrar_usuario" method="post">
+                    <h2>Registro de Usuario</h2>
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre Completo" required>
+                    <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre de Usuario" required>
+                    <input type="password" id="claveWeb" name="claveWeb" placeholder="Contraseña" required>
+                    <label for="rolId">Seleccione el tipo de usuario:</label>
+                    <select id="rolId" name="rolId" required>
+                        <option value="1">Usuario Normal</option>
+                        <option value="2">Administrador</option>
+                    </select>
+                    <button type="submit">Registrarse</button>
+                </form>
+                
+                <form id="formularioInicioSesion" class="formulario__login" style="display: none;" action="/iniciar_sesion" method="post">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="email" id="correoLogin" name="correo" placeholder="Correo Electrónico" required>
+                    <input type="password" id="claveWebLogin" name="claveWeb" placeholder="Contraseña" required>
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Derechos reservados &copy; 2024 Sabori
+    </footer>
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.getElementById('btn__registrarse').addEventListener('click', function() {
+            document.getElementById('formularioRegistro').style.display = 'block';
+            document.getElementById('formularioInicioSesion').style.display = 'none';
+        });
+
+        document.getElementById('btn__iniciar-sesion').addEventListener('click', function() {
+            document.getElementById('formularioRegistro').style.display = 'none';
+            document.getElementById('formularioInicioSesion').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

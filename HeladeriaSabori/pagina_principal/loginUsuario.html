@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heladeria Sabori</title>
+    <link rel="stylesheet" href="css/inisiosesion.css">
+    <link rel="icon" type="image" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo Sabori">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html">Cerrar Sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Bienvenido a Heladeria Sabori</h1>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Subir Imagen</h2>
+                <form enctype="multipart/form-data">
+                    <input type="file" id="profileImage" name="profileImage">
+                    <button type="button" onclick="subirImagen()">Subir Imagen</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Derechos reservados &copy; 2024 Sabori</p>
+        </div>
+    </footer>
+
+    <script>
+        async function subirImagen() {
+            const formData = new FormData();
+            formData.append('profileImage', document.getElementById('profileImage').files[0]);
+
+            try {
+                const response = await fetch('/subir_imagen', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const message = await response.text();
+                alert(message); // Muestra una alerta con el mensaje del servidor
+            } catch (error) {
+                console.error('Error al subir la imagen:', error);
+                alert('Error al subir la imagen.');
+            }
+        }
+    </script>
+</body>
+</html>
